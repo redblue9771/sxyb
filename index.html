@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>报名FAQ</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/shards-ui@2.0.3/dist/css/shards.min.css">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="Chart.min.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid text-center" style="max-width:1024px">
+
+        <h1><img src="logo.png" width="100px" /><strong>鳝溪易班</strong></h1>
+        <hr>
+        <h2>大数据中心</h2>
+        <canvas id="count"></canvas>
+        <canvas id="position"></canvas>
+    </div>
+
+    <script>
+        window.onload = function () {
+            var ctxCount = document.getElementById('count').getContext('2d'),
+                $Count = new Chart(ctxCount, {
+                    type: 'horizontalBar',
+
+                    data: {
+
+                        datasets: [{
+                            label: "",
+                            data: [
+                                5, 10, 22, 19, 11, 19, 3, 7, 4
+                            ],
+                            backgroundColor: [
+                                'red',
+                                'blue',
+                                'green',
+                                'yellow',
+                                'orange',
+                                'Gold',
+                                'Brown',
+                                'LimeGreen',
+                                'BlueViolet'
+                            ]
+                        }],
+                        labels: [
+                            " 金融工程 ",
+                            " 国际商务与贸易 ",
+                            " 电子商务 ",
+                            " 信息管理与信息系统 ",
+                            " 物流管理 ",
+                            " 物联网工程 ",
+                            " 国际商务 ",
+                            " 市场营销 ",
+                            " 工商管理 "
+                        ]
+                    },
+                    options: {
+                                       title: {
+                            display: true,
+                            text: '各专业报名情况',
+                        },
+                        responsive: true,
+                        responsiveAnimationDuration: 300,
+                        maintainAspectRatio: true
+                    }
+                });
+            var ctxPosition = document.getElementById('position').getContext('2d'),
+                $Position = new Chart(ctxPosition, {
+                    type: 'doughnut',
+
+                    data: {
+
+                        datasets: [{
+                            data: [
+                                50,45,52
+                            ],
+                            backgroundColor: [
+                                'red',
+                                'blue',
+                                'green',
+                            ]
+                        }],
+                        labels: [
+                            " 文字编辑类 ",
+                            " 摄影视觉类 ",
+                            " 技术编程类 ",
+                        ]
+                    },
+                    options: {
+                        title: {
+                            display: true,
+                            text: '兴趣导向',
+                        },
+                        responsive: true,
+                        responsiveAnimationDuration: 300,
+                        maintainAspectRatio: true
+                    }
+                });
+        };
+    </script>
+</body>
+
+</html>
